@@ -55,6 +55,14 @@ function orderByProps(object, [...rules]) {
     }
   });
 
+  /* rules.forEach((rule) => {
+    if (rule in proxyObject) {
+      const item = { key: rule, value: proxyObject[rule] };
+      delete proxyObject[rule];
+      arrSortByRules.push(item);
+    }
+  }); */
+
   const sortByAlphibite = Object.keys(proxyObject).sort();
 
   sortByAlphibite.forEach((el) => {
