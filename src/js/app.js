@@ -1,4 +1,4 @@
-/*class Player {
+/* class Player {
   constructor(name, health, level, attack, defence) {
     this.name = name;
     this.health = health;
@@ -31,9 +31,15 @@
   }
 }
 const obj = new Player("мечник", 10, 2, 80, 40);
-obj.sortByRules(["name", "level"]);*/
+obj.sortByRules(["name", "level"]); */
 
-const obj = { name: "мечник", health: 10, level: 2, attack: 80, defence: 40 };
+const obj = {
+  name: 'мечник',
+  health: 10,
+  level: 2,
+  attack: 80,
+  defence: 40,
+};
 
 function orderByProps(object, [...rules]) {
   const proxyObject = { ...object };
@@ -41,7 +47,7 @@ function orderByProps(object, [...rules]) {
 
   rules.forEach((rule) => {
     for (const prop in proxyObject) {
-      if (proxyObject.hasOwnProperty(prop) && String(prop) === rule) {
+      if (String(prop) === rule) {
         const newProp = { key: rule, value: proxyObject[rule] };
         arrSortByRules.push(newProp);
         delete proxyObject[prop];
@@ -60,4 +66,6 @@ function orderByProps(object, [...rules]) {
   return arrSortByRules;
 }
 
-orderByProps(obj, ["name", "level"]);
+orderByProps(obj, ['name', 'level']);
+
+export default orderByProps;
